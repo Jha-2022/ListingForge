@@ -1,0 +1,30 @@
+{
+  "name": "listingforge-backend",
+  "version": "1.0.0",
+  "description": "ListingForge backend — local-first product listing writer",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "test": "jest --forceExit --detectOpenHandles"
+  },
+  "dependencies": {
+    "adm-zip": "^0.5.10",
+    "better-sqlite3": "^11.3.0",
+    "cors": "^2.8.5",
+    "csv-parse": "^5.5.6",
+    "csv-stringify": "^6.5.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.0",
+    "multer": "^1.4.5-lts.1",
+    "pino": "^9.4.0",
+    "pino-pretty": "^11.2.2",
+    "sharp": "^0.33.5",
+    "uuid": "^10.0.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "supertest": "^7.0.0"
+  }
+}

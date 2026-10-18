@@ -1,0 +1,56 @@
+version: "3.8"
+
+services:
+  ollama:
+    image: ollama/ollama:latest
+    container_name: listingforge-ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_models:/root/.ollama
+    # Uncomment below for NVIDIA GPU support:
+    # deploy:
+    #   resources:
+    #     reservations:
+    #       devices:
+    #         - driver: nvidia
+    #           count: all
+    #           capabilities: [gpu]
+    restart: unless-stopped
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: listingforge-backend
+    ports:
+      - "4000:4000"
+    environment:
+      - PORT=4000
+      - OLLAMA_BASE_URL=http://ollama:11434
+      - VLM_MODEL=${VLM_MODEL:-qwen2.5vl:7b}
+      - DB_PATH=/app/data/listingforge.db
+      - UPLOAD_DIR=/app/uploads
+      - LICENSE_SECRET=${LICENSE_SECRET:-listingforge-dev-secret}
+      - NODE_ENV=production
+      - LOG_LEVEL=info
+    volumes:
+      - ./backend/data:/app/data
+      - ./backend/uploads:/app/uploads
+    depends_on:
+      - ollama
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: listingforge-frontend
+    ports:
+      - "5173:80"
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+volumes:
+  ollama_models:

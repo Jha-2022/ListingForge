@@ -6,6 +6,10 @@ A seller uploads 1 to 5 product photos and gets a marketplace-ready listing in t
 
 ---
 
+<img width="2730" height="1341" alt="lf1" src="https://github.com/user-attachments/assets/c52fcead-2fb5-4415-b1ca-151d3b229e3a" />
+<img width="2730" height="1304" alt="lf2" src="https://github.com/user-attachments/assets/aadda2aa-def3-4e68-b01f-fb0a6541612e" />
+
+
 ## 🌟 Highlights
 
 - **Local-First Privacy**: Vision analysis and text generation run completely locally via Ollama.
@@ -63,6 +67,7 @@ docker compose down
 ```
 
 ---
+<img width="960" height="540" alt="lf3" src="https://github.com/user-attachments/assets/1dcade00-f9dd-4a35-9fe9-8bf2a70f81e3" />
 
 ## 💻 Manual / Local Development Setup (Without Docker)
 
@@ -116,6 +121,7 @@ npm run dev
 Frontend will be available at **http://localhost:5173**.
 
 ---
+<img width="2730" height="1536" alt="lf4" src="https://github.com/user-attachments/assets/17312d1c-bf6e-4f9c-8787-43c8fd191fc1" />
 
 ## 🔑 Batch Processing & License System
 
